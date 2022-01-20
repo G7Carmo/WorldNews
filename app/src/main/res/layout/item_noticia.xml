@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivArtigoImagem"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/title"
+        android:textAllCaps="true"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivArtigoImagem"
+        app:layout_constraintTop_toTopOf="@id/ivArtigoImagem" />
+
+    <TextView
+        android:id="@+id/tvDescricao"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/open_sans"
+        android:maxLines="7"
+        android:text="@string/description"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivArtigoImagem"
+        app:layout_constraintEnd_toEndOf="@id/tvTitulo"
+        app:layout_constraintStart_toStartOf="@id/tvTitulo"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+
+    <TextView
+        android:id="@+id/tvSource"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/source"
+        app:layout_constraintStart_toStartOf="@id/ivArtigoImagem"
+        app:layout_constraintTop_toBottomOf="@id/ivArtigoImagem" />
+
+    <TextView
+        android:id="@+id/tvDataDePublicacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/published_at"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvSource"
+        app:layout_constraintTop_toBottomOf="@id/tvSource" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
