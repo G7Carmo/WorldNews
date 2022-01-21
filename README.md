@@ -1,1 +1,2 @@
-WorldNews aplicativo ddesenvolvido em mvvm
+#WorldNews
+-Arquitetura MVVM
