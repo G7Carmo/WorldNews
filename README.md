@@ -1,2 +1,1 @@
 #WorldNews
--Arquitetura MVVM
