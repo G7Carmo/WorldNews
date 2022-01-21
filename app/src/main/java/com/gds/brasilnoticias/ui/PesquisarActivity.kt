@@ -1,5 +1,6 @@
 package com.gds.brasilnoticias.ui
 
+import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -7,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gds.brasilnoticias.R
 import com.gds.brasilnoticias.adapter.MainAdapter
 import com.gds.brasilnoticias.model.Artigo
-import com.gds.brasilnoticias.model.data.FonteDeDadosNoticia
+import com.gds.brasilnoticias.model.data.NewsDataSource
 import com.gds.brasilnoticias.presenter.ViewHome
 import com.gds.brasilnoticias.presenter.pesquisar.PesquisarPresenter
 import com.gds.brasilnoticias.util.UtilQueryTextListner
@@ -26,10 +27,11 @@ class PesquisarActivity : AbstractActivity(), ViewHome.View {
         configPresenter()
         configRecycler()
         pesquisarNoticia()
+        clickAdapter()
     }
 
     private fun configPresenter() {
-        val fonteDeDados = FonteDeDadosNoticia()
+        val fonteDeDados = NewsDataSource(this)
         presenter = PesquisarPresenter(this, fonteDeDados)
     }
 
@@ -65,6 +67,14 @@ class PesquisarActivity : AbstractActivity(), ViewHome.View {
         }
 
     }
+    private fun clickAdapter(){
+        searchAdapter.setOnClickListner { artigo ->
+            val intent = Intent(this,ArtigoActivity::class.java)
+            intent.putExtra("artigo",artigo)
+            startActivity(intent)
+        }
+    }
+
 
     override fun mostrarBarraDeProgresso() {
         rvProgressBarTelaPesquisar.visibility = View.VISIBLE

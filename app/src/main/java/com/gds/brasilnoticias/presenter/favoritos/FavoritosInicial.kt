@@ -4,5 +4,8 @@ import com.gds.brasilnoticias.model.Artigo
 import com.gds.brasilnoticias.model.RespostaDaNoticia
 
 interface FavoritosInicial {
-    fun MostrarArtigos(artigos : List<Artigo>)
+
+    interface Presenter{
+        fun sucesso(artigos : List<Artigo>)
+    }
 }

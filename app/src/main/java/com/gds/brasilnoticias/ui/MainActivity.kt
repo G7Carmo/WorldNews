@@ -1,8 +1,6 @@
 package com.gds.brasilnoticias.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -12,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gds.brasilnoticias.R
 import com.gds.brasilnoticias.adapter.MainAdapter
 import com.gds.brasilnoticias.model.Artigo
-import com.gds.brasilnoticias.model.data.FonteDeDadosNoticia
+import com.gds.brasilnoticias.model.data.NewsDataSource
 import com.gds.brasilnoticias.presenter.ViewHome
 import com.gds.brasilnoticias.presenter.noticia.NoticiaPresenter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,11 +25,12 @@ class MainActivity : AbstractActivity(), ViewHome.View {
     override fun onInject() {
         configPresenter()
         configRecycler()
+        clickAdapter()
 
     }
 
     private fun configPresenter() {
-        val fonteDeDados = FonteDeDadosNoticia()
+        val fonteDeDados = NewsDataSource(this)
         presenter = NoticiaPresenter(this, fonteDeDados)
         presenter.requisitarTudo()
     }
@@ -46,6 +45,14 @@ class MainActivity : AbstractActivity(), ViewHome.View {
                     DividerItemDecoration.VERTICAL
                 )
             )
+        }
+    }
+
+    private fun clickAdapter(){
+        mainAdapter.setOnClickListner { artigo ->
+            val intent = Intent(this,ArtigoActivity::class.java)
+            intent.putExtra("artigo",artigo)
+            startActivity(intent)
         }
     }
 

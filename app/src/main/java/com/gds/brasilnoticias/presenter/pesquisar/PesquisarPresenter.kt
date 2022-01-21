@@ -1,12 +1,12 @@
 package com.gds.brasilnoticias.presenter.pesquisar
 
 import com.gds.brasilnoticias.model.RespostaDaNoticia
-import com.gds.brasilnoticias.model.data.FonteDeDadosNoticia
+import com.gds.brasilnoticias.model.data.NewsDataSource
 import com.gds.brasilnoticias.presenter.ViewHome
 
 class PesquisarPresenter(
     val view : ViewHome.View,
-    private val fonteDeDados : FonteDeDadosNoticia
+    private val fonteDeDados : NewsDataSource
 ) :PesquisarInicial.Presenter{
     override fun pesquisar(termo: String) {
         this.view.mostrarBarraDeProgresso()

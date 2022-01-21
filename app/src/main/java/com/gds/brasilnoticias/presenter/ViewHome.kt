@@ -9,5 +9,8 @@ interface ViewHome {
         fun esconderBarraDeProgresso()
         fun mostrarArtigos(artigos : List<Artigo>)
     }
+    interface Favoritos{
+        fun mostrarArtigos(artigos : List<Artigo>)
+    }
 
 }
