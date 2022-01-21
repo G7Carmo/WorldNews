@@ -8,5 +8,4 @@ class FavoritosActivity : AbstractActivity() {
     override fun getLayout(): Int = R.layout.activity_favoritos
     override fun onInject() {
     }
-
 }

@@ -9,18 +9,19 @@ class PesquisarPresenter(
     private val fonteDeDados : FonteDeDadosNoticia
 ) :PesquisarInicial.Presenter{
     override fun pesquisar(termo: String) {
-        TODO("Not yet implemented")
+        this.view.mostrarBarraDeProgresso()
+        this.fonteDeDados.pesquisarNoticia(termo,this)
     }
 
     override fun sucesso(novaRespostaDaNoticia: RespostaDaNoticia) {
-        TODO("Not yet implemented")
+        this.view.mostrarArtigos(novaRespostaDaNoticia.articles)
     }
 
     override fun erro(mensagem: String) {
-        TODO("Not yet implemented")
+        this.view.showFalha(mensagem)
     }
 
     override fun completo() {
-        TODO("Not yet implemented")
+        this.view.esconderBarraDeProgresso()
     }
 }
